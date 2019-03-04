@@ -66,7 +66,7 @@ Here is the process I followed to tune the params.:
 * Start with PD tuning for the steer angle but keep the speed constant at 0.3.
 * P initial value = 0.0,0.1, D initial value = 0.0,0.5,1.0,2.0.,3.0 (since a large D was needed to control the P).
 * Min. steps to settle/ Steps where error is measured = 100/100, 50/200, 20/40. Finally tuned with 20/40.
-* Error (dp from class) = 1, 0.1, 0.01, 0.001. The error tolerance correspondingly was 0.2, 0.02, 0.002, 0.0002. Finally chose dp = 0.001 and tolerance = 0.0002.
+* Error (dp from class) = 1, 0.1, 0.01, 0.001. The error tolerance correspondingly was 0.2, 0.02, 0.002, 0.0002. Finally chose dp = 0.01 and tolerance = 0.002.
 * Tune for I using the PD values obtained above. I initial value were chose from 0.1,0.01,0.001. I needed to be small to have required effect.
 * Keeping the twiddle for steer on, train for speed PID in the same process described above. I was found zero for this speed tuning. 
 
@@ -74,6 +74,4 @@ Final values for were:
 * steer PID = [0.397614, 0.0001, 3.19852]
 * speed PID =  [0.01, 0, 0.0190584]
 
-* I used a bias for speed in the main.cpp to push the car to max limit. The max bias in steps of 0.1 was found to be 0.4. The car averages around 40mph at this bias.
-
-
+* I used a bias for speed in the main.cpp to push the car to max limit. The max bias (in steps of 0.1) was found to be 0.4. The car averages around 40mph at this bias.
